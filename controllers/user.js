@@ -1,6 +1,15 @@
+// Edits to 'user.js' <--------------------------
+// Student: Avalon Stanley
+// StudentId: 300849734
+// Web App: COMP229003-M2022-MidTerm
+// Date: July 06, 2022
+
+
 let User = require('../models/user');
 let passport = require('passport');
 
+
+//Deals with Errors--------------------------------------------------------
 function getErrorMessage(err) {
   console.log("===> Erro: " + err);
   let message = '';
@@ -23,6 +32,9 @@ function getErrorMessage(err) {
   return message;
 };
 
+
+
+//Brings up sign-in page--------------------------------------------------------
 module.exports.renderSignin = function(req, res, next) {
   if (!req.user) {
     res.render('auth/signin', {
@@ -35,6 +47,8 @@ module.exports.renderSignin = function(req, res, next) {
   }
 };
 
+
+//Brings up sign-up page--------------------------------------------------------
 module.exports.renderSignup = function(req, res, next) {
   if (!req.user) {
 
@@ -48,10 +62,12 @@ module.exports.renderSignup = function(req, res, next) {
     });
 
   } else {
-    return res.redirect('/');
+    return res.redirect('/');//if already signed in, redirects to root of application
   }
 };
 
+
+//Process new sign-up page--------------------------------------------------------
 module.exports.signup = function(req, res, next) {
   if (!req.user && req.body.password === req.body.password_confirm) {
     console.log(req.body);
@@ -81,11 +97,13 @@ module.exports.signup = function(req, res, next) {
   }
 };
 
+//Render sign-out page--------------------------------------------------------
 module.exports.signout = function(req, res, next) {
   req.logout();
   res.redirect('/');
 };
 
+//Authenticate sign-in--------------------------------------------------------
 module.exports.signin = function(req, res, next){
   passport.authenticate('local', {   
     successRedirect: req.session.url || '/',
