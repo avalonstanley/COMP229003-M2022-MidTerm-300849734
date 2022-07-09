@@ -25,6 +25,10 @@
     "passport-local": "^1.0.0"
   },
   "description": "COMP229.M2022 - Midterm Template",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/avalonstanley/COMP229003-M2022-MidTerm-300849734.git"
+  },
   "main": "server.js",
   "keywords": [
     "COMP229",
@@ -36,5 +40,10 @@
     "Passportjs."
   ],
   "author": "Julio Vinicius",
-  "license": "MIT"
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/avalonstanley/COMP229003-M2022-MidTerm-300849734/issues"
+  },
+  "homepage": "https://github.com/avalonstanley/COMP229003-M2022-MidTerm-300849734#readme"
 }
+
